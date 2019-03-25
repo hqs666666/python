@@ -24,6 +24,8 @@ def getJbCode(body):
 
 def getReptile(body):
     params = getParams(body)
+    if(listExistValue("receive_msg",params.mid)):
+        return
     res = pa.ImageDownload(params.request_url)
     params.red_url='http://reptile.t.cn/Home/Privacy?code='+res.imgKey
     dicts=res.convert_to_json(params)
@@ -43,6 +45,11 @@ def getParams(body):
     data.red_url = jsonObject['ViewUrl']
     return data
 
+def listExistValue(key,value):
+    datalist = r.lrange(key,0,-1)
+    values = list(filter(lambda x:json.loads(x)["Id"] == value),datalist)
+    print(key,'中已存在',value,'跳过...')
+    return not values
 
 def saveInRedis(key, value):
     if (r.exists(key) == 1):
