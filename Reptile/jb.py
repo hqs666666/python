@@ -1,7 +1,7 @@
 import pika
 import logging
-import moment
 import requests
+import moment
 import json
 import time
 import redis
