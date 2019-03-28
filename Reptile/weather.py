@@ -25,3 +25,10 @@ class weather(utils.utils):
             params.content='错误'
 
         self.notification(params)
+        self.notification_to_zhouyu(params)
+
+    def notification_to_zhouyu(self,params):
+        url='http://push.devzhou.t.cn/Push/'+params.title+'/'+params.content+'?url='+params.red_url
+        requests.get(url)
+        logging.info('messgae send successfully')
+

@@ -15,7 +15,7 @@ logging.getLogger().setLevel(logging.INFO)
 logging.info('starting...')
 credentials = pika.PlainCredentials('guest', 'guest')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-    host='127.0.0.1', port=5672, credentials=credentials))
+    host='t.cn', port=5672, credentials=credentials))
 logging.info('rebbitmq connecting')
 
 

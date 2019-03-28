@@ -6,7 +6,7 @@ import json
 class redis_helper:
     def __init__(self):
         pool = redis.ConnectionPool(
-            host='localhost', port=6379, decode_responses=True)
+            host='t.cn', port=6379, decode_responses=True)
         self.r = redis.Redis(connection_pool=pool)
         logging.info('redis connecting')
 
